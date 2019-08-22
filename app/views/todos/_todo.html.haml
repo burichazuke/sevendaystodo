@@ -3,10 +3,21 @@
     %p.todo__main__name    
       =todo.name
     .todo__main__deadline
-      .todo__main__deadline__day
-        ="#{todo.deadline.strftime("%m月%d日")}まで"
-      .todo__main__deadline__left
-        あと６日
+      :ruby
+        remain = (todo.deadline - Date.today).to_i
+      -if remain >= 0
+        .todo__main__deadline__day
+          ="#{todo.deadline.strftime("%m月%d日")}まで"
+        .todo__main__deadline__left
+          ="あと#{remain}日"
+      - else
+        .todo__main__deadline__day
+          ="#{todo.deadline.strftime("%m月%d日")}から"
+        .todo__main__deadline__left
+          ="#{remain.abs}日経過"
   .todo__cheak
     .todo__cheak__icon
-      =fa_icon "check-square-o"
+      -if todo.status == 0
+        =fa_icon "square-o"
+      -else
+        =fa_icon "check-square-o"

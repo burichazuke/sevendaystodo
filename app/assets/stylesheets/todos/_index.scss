@@ -15,21 +15,26 @@ main{
     font-weight: bold;
     color: #ecf0f1;
     margin-bottom: 15px; 
+    transition: 0.2s;
     &:hover{
-      color: #7f8c8d
+      color: white;
     }
   }
 }
 
 .contents{
   width: 80%;
+  min-width: 300px;
   height: 100%;
   background: #ecf0f1;
+  overflow-y: scroll;
 }
 
 .todos{
   width: 50%;
+  height: 100%;
   margin: 50px;
+
   .todo{
     width: 80%;
     min-width: 300px;
@@ -39,10 +44,16 @@ main{
     display: flex;
     box-shadow:2px 2px 6px 1px #7f8c8d;
     border-radius: 5px;
+    transition: 0.2s;
+    &:hover{
+      opacity: 0.8;
+      width: 82%;
+    }
     &__main{
       width: 90%;
       height: 100%;
       padding: 20px 20px 5px;
+      cursor: pointer;
       &__name{
       height: 80%;
         font-size: 20px;
@@ -62,7 +73,7 @@ main{
         justify-content: flex-end;
         align-items: flex-end;
         &__day{
-          padding-right:30px; 
+          padding-right:20px; 
         }
       }
     }
@@ -76,7 +87,8 @@ main{
       border-radius: 0 5px 5px 0;
       &__icon{
         font-size: 30px;
-        color: #ecf0f1
+        color: #ecf0f1;
+        cursor: pointer;
       }
     }
   }
