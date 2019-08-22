@@ -21,18 +21,19 @@ main{
 }
 
 .todos{
-  width: 350px;
+  width: 50%;
   margin: 50px;
   .todo{
-    width: 100%;
+    width: 80%;
+    min-width: 300px;
     height: 100px;
+    margin: 0 auto 30px;
     background-color:  white;
     display: flex;
-    margin-bottom: 30px; 
     box-shadow:2px 2px 6px 1px #7f8c8d;
     border-radius: 5px;
     &__main{
-      width: 300px;
+      width: 90%;
       height: 100%;
       padding: 20px 20px 5px;
       &__name{
@@ -49,7 +50,7 @@ main{
         }
       }
       &__deadline{
-        height: 20%;
+        height: 10%;
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
@@ -59,7 +60,7 @@ main{
       }
     }
     &__cheak{
-      width: 50px;
+      width: 20%;
       height: 100%;
       background: #e67e22;
       display: flex;
