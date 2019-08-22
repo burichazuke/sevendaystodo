@@ -4,16 +4,4 @@
     =link_to "新規作成", new_todo_path
   .contents
     .todos
-      .todo
-        .todo__main
-          %p.todo__main__name    
-            今やってますところで元気ですか？会いませんか？
-          .todo__main__deadline
-            .todo__main__deadline__day
-              9/3まで
-            .todo__main__deadline__left
-              あと６日
-        .todo__cheak
-          .todo__cheak__icon
-            =fa_icon "check-square-o"
-
+      =render @todos

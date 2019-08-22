@@ -1,0 +1,12 @@
+.todo
+  .todo__main
+    %p.todo__main__name    
+      =todo.name
+    .todo__main__deadline
+      .todo__main__deadline__day
+        ="#{todo.deadline.strftime("%m月%d日")}まで"
+      .todo__main__deadline__left
+        あと６日
+  .todo__cheak
+    .todo__cheak__icon
+      =fa_icon "check-square-o"

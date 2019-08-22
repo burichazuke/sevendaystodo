@@ -11,6 +11,8 @@ class TodosController < ApplicationController
     @todo = Todo.create(todo_params)
     if @todo.save
       redirect_to root_path
+    else
+      redirect_to new_todo_path
     end
   end
 
@@ -21,7 +23,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:name, :description, :deadline)
+    params.require(:todo).permit(:name, :description, :deadline).merge(user_id: current_user.id)
   end
 
 end

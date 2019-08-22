@@ -5,5 +5,9 @@
   .contents
     .new-todo-form
       %h1 新規作成
-      
+      =form_with model: @todo do |f|
+        = f.text_field :name
+        = f.text_area :description
+        = f.date_field :deadline
+        = f.submit
 
