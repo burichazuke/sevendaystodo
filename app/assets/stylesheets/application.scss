@@ -1,3 +1,6 @@
 @import 'reset';
 @import 'font-awesome';
-@import 'todos';
+@import 'config/color';
+@import 'config/mixin';
+@import 'todos/index';
+@import 'todos/new'
