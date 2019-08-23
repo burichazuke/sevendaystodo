@@ -1,0 +1,22 @@
+.fc-view-container{
+  background: white;
+  box-shadow: $shadow;
+}
+.fc-head{
+  background: #e67e22;
+  color: white;
+  font-weight: bold;
+}
+
+.fc-unthemed td.fc-today{
+  background-color: white;
+}
+
+.fc-unthemed td.fc-today.fc-day-top{
+  background-color: #f39c12;
+  color: white;
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td {
+  border-color: #ecf0f1;
+}

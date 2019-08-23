@@ -66,5 +66,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 
 

@@ -1,6 +1,11 @@
+/*
+ *= require fullcalendar
+ */
+
 @import 'reset';
 @import 'font-awesome';
 @import 'config/color';
 @import 'config/mixin';
 @import 'todos/index';
-@import 'todos/new'
+@import 'todos/new';
+@import 'todos/calendar';
