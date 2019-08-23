@@ -1,0 +1,47 @@
+%main
+  .sideber
+    =link_to "7days to do", root_path
+    =link_to "新規作成", new_todo_path
+  .contents
+    .todos
+      .todo
+        .todo__main
+          %p.todo__main__name    
+            =@todo.name
+          .todo__main__deadline
+            :ruby
+              remain = (@todo.deadline - Date.today).to_i
+            -if remain >= 0
+              .todo__main__deadline__day
+                ="#{@todo.deadline.strftime("%m月%d日")}まで"
+              .todo__main__deadline__left
+                ="あと#{remain}日"
+            - else
+              .todo__main__deadline__day
+                ="#{@todo.deadline.strftime("%m月%d日")}から"
+              .todo__main__deadline__left
+                ="#{remain.abs}日経過"
+          -if @todo.status == 1
+            =image_tag("neko-tassei.png", class: "complete")
+        .todo__cheak
+          .todo__cheak__icon
+            -if @todo.status == 0
+              =fa_icon "square-o", "data-id": @todo.id, class: "check-box"
+            -else
+              =fa_icon "check-square-o", "data-id": @todo.id, class: "checked-box"
+ 
+      .new-todo-form
+        %h1 詳細
+        =form_with model: @todo do |f|
+          = f.label :name, "タイトル"
+          = f.text_field :name
+          = f.label :description, "詳細"
+          = f.text_area :description
+          = f.label :deadline, "期日"
+          = f.date_field :deadline, id: "deadline-form"
+          .new-todo-form__submit
+            = f.submit "更新", class: "send"
+            %button{class: "destroy"}
+              削除
+    .calendar
+      #calendar
