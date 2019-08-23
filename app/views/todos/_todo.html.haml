@@ -18,6 +18,6 @@
   .todo__cheak
     .todo__cheak__icon
       -if todo.status == 0
-        =fa_icon "square-o"
+        =fa_icon "square-o", "data-id": todo.id, class: "check-box"
       -else
-        =fa_icon "check-square-o"
+        =fa_icon "check-square-o", "data-id": todo.id, class: "checked-box"

@@ -16,6 +16,17 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+    @todo.update(todo_params)
+    if @todo.save
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json
+      end
+    end
+  end
+
 
 
 
@@ -23,7 +34,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:name, :description, :deadline).merge(user_id: current_user.id)
+    params.require(:todo).permit(:id, :name, :description, :deadline, :status).merge(user_id: current_user.id)
   end
 
 end
