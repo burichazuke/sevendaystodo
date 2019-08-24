@@ -1,7 +1,6 @@
 %main
   .sideber
-    =link_to "7days to do", root_path
-    =link_to "新規作成", new_todo_path
+    =render "shared/sidebar"
   .contents
     .todos
       .todo
@@ -41,8 +40,7 @@
           = f.date_field :deadline, id: "deadline-form"
           .new-todo-form__submit
             = f.submit "更新", class: "send"
-            %button{class: "destroy"}
-              削除
+            =link_to "削除", todo_path(@todo), class: "destroy", data: {confirm: "本当に削除しますか？"}, method: :delete
           %button{class: "destroy"}
             もどる
     .calendar
