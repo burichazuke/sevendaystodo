@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
+  before_action :set_todos
+
   def index
-    @todos = Todo.where(user_id: current_user.id).order("deadline asc")
     respond_to do |format|
       format.html 
       format.json 
@@ -47,6 +48,11 @@ class TodosController < ApplicationController
 
   def todo_params
     params.require(:todo).permit(:id, :name, :description, :deadline, :status).merge(user_id: current_user.id)
+  end
+
+  def set_todos
+    @keyword = Todo.ransack(params[:q])
+    @todos = @keyword.result(distinct: true).where(user_id: current_user.id).order("deadline asc")
   end
 
 end
