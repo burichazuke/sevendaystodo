@@ -4,11 +4,9 @@ $(document).on('turbolinks:load', function(){
   $(document).on('click','.check-box', function(){
     var target = $(this)
     var grandparent = $(target).parent().parent().prev()
-    // var brother = $(grandparent).prev()
     var id = $(target).data()
-    var url = `todos/${id.id}`
     $.ajax({
-      url: url,
+      url: `/todos/${id.id}`,
       type: "PATCH",
       data: {id, todo: {status: 1}},
       dataType: 'json'
@@ -28,9 +26,8 @@ $(document).on('turbolinks:load', function(){
     var grandparent = $(target).parent().parent().prev()
     var image = $(grandparent).children().last()
     var id = $(target).data()
-    var url = `todos/${id.id}`
     $.ajax({
-      url: url,
+      url: `/todos/${id.id}`,
       type: "PATCH",
       data: {id, todo: {status: 0}},
       dataType: 'json'

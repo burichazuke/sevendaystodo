@@ -1,10 +1,95 @@
 .new-todo-form{
-  width: 65%;
+  width: 80%;
   min-height: 300px;
-  margin: 50px auto;
+  margin: 0 auto 50px;
   background-color: white;
   border-radius: 5px;
   box-shadow:$shadow;
   text-align: center;
   padding: 20px;
+  transition: 0.2s;
+  h1{
+    width: 85%;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #e67e22;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  label{
+    width: 80px;
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    background-color: #e67e22;
+    border-radius: 5px;
+  }
+  input,textarea{
+    width: 85%;
+    min-height: 50px;
+    margin: 10px 0 5px;
+    border: 1px solid #e67e22;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e67e22;
+    transition: 0.4s;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      width: 100%;
+    }
+  }
+  .send{
+    margin-top: 50px;
+    transition: 0.4s;
+    &:hover{
+      background-color: #e67e22;
+      opacity: 0.8;
+      color: white;
+      cursor: pointer;
+    } 
+  }
+  &__submit{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .send{
+      width: 48%;
+      height: 50px;
+      &:hover{
+        width: 60%;
+        margin-right: 5px;
+      }
+    }
+  }
+  .destroy{
+    width: 48%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e67e22;
+    margin-top: 50px;
+    border: 1px solid #e67e22;
+    border-radius: 5px;
+    transition: 0.4s;
+    &:hover{
+      width: 60%;
+      background-color: #e67e22;
+      opacity: 0.8;
+      color: white;
+      cursor: pointer;
+      margin-left: 5px;
+    } 
+  }
 }

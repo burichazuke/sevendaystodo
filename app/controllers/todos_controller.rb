@@ -1,7 +1,11 @@
 class TodosController < ApplicationController
   def index
     @todos = Todo.all.order("deadline asc")
-  end
+    respond_to do |format|
+      format.html 
+      format.json 
+    end
+   end
 
   def new
     @todo = Todo.new
@@ -14,6 +18,10 @@ class TodosController < ApplicationController
     else
       redirect_to new_todo_path
     end
+  end
+
+  def edit
+    @todo = Todo.find(params[:id])
   end
 
   def update

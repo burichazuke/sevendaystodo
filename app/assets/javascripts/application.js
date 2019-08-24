@@ -12,6 +12,9 @@
 //
 //= require rails-ujs
 //= require jquery 
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/locale-all
 //= require jquery_ujs
 //= require activestorage
 //= require turbolinks

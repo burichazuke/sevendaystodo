@@ -1,5 +1,5 @@
 .todo
-  .todo__main
+  =link_to edit_todo_path(todo), class: "todo__main" do
     %p.todo__main__name    
       =todo.name
     .todo__main__deadline
@@ -17,8 +17,8 @@
           ="#{remain.abs}日経過"
     -if todo.status == 1
       =image_tag("neko-tassei.png", class: "complete")
-  .todo__cheak
-    .todo__cheak__icon
+  .todo__check
+    .todo__check__icon
       -if todo.status == 0
         =fa_icon "square-o", "data-id": todo.id, class: "check-box"
       -else
