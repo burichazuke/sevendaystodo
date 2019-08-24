@@ -7,4 +7,6 @@ $(document).on('turbolinks:load', function(){
       $('#deadline-form').val(value[1])
     })
   }
+
+  autosize(document.querySelectorAll('textarea'));
 })

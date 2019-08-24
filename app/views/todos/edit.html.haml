@@ -34,7 +34,7 @@
         %h1 詳細
         =form_with model: @todo do |f|
           = f.label :name, "タイトル"
-          = f.text_field :name
+          = f.text_area :name
           = f.label :description, "詳細"
           = f.text_area :description
           = f.label :deadline, "期日"

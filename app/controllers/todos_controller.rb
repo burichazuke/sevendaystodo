@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def index
-    @todos = Todo.all.order("deadline asc")
+    @todos = Todo.where(user_id: current_user.id).order("deadline asc")
     respond_to do |format|
       format.html 
       format.json 
