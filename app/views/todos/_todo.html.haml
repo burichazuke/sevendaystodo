@@ -17,6 +17,8 @@
           ="#{remain.abs}日経過"
     -if todo.status == 1
       =image_tag("neko-tassei.png", class: "complete")
+    -else 
+      =image_tag("neko-tassei.png", class: "complete hide")
   .todo__check
     .todo__check__icon
       -if todo.status == 0
