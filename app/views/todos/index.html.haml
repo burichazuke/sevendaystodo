@@ -3,6 +3,11 @@
     =render "shared/sidebar"
   .contents
     .todos
+      -if @todos.length == 0
+        .todo
+          =link_to new_todo_path, class: "todo__main" do
+            %p.todo__main__name    
+              予定を登録しましょう!!
       =render @todos
     .calendar
       #calendar
