@@ -5,3 +5,15 @@
 -else
   =link_to "ログイン", new_user_session_path 
   =link_to "新規登録", new_user_registration_path 
+
+
+=search_form_for(@keyword, url: todos_path) do |f|
+  = f.label "達成済を非表示"
+  = f.check_box :status_eq_any, { multiple: true, onchange: 'this.form.submit()' }, 0, ""
+  %br
+  = f.label "タイトルで検索"
+  = f.search_field :name_cont_all
+  -# = f.date_field :deadline_gteq
+  -# 〜
+  -# = f.date_field :deadline_lteq
+  = f.submit
