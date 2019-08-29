@@ -53,6 +53,8 @@ class TodosController < ApplicationController
   def set_todos
     @keyword = Todo.ransack(params[:q])
     @todos = @keyword.result(distinct: true).where(user_id: current_user.id).order("status asc", "deadline asc")
+    todos_comp = @keyword.result(distinct: true).where(user_id: current_user.id, status: 1)
+    @percent = ((todos_comp.length.to_f / @todos.length.to_f).round(2) * 100).to_i
   end
 
 end
