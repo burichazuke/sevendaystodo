@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function(){
-
+  var compLength = gon.comp_length
+  var length = gon.length;
   $(document).on('click','.check-box', function(){
     var target = $(this);
     var grandparent = $(target).parent().parent().prev();
@@ -15,6 +16,18 @@ $(document).on('turbolinks:load', function(){
       $(target).removeClass('fa-square-o check-box');
       $(target).addClass('fa-check-square-o checked-box');
       $(image).fadeIn();
+
+      // 達成率カウントアップ
+      compLength ++;
+      var result = Math.round(compLength / length * 100);
+      var percent = $('#percent span').text(); 
+      $({count: percent}).animate({count: result}, {
+        duration: 1000,
+        easing: 'swing',
+        progress: function() { 
+          $('#percent span').text(Math.ceil(this.count)); 
+        }
+      });
     })
     .fail(function(){
       console.log("失敗")
@@ -36,6 +49,18 @@ $(document).on('turbolinks:load', function(){
       $(target).removeClass('fa-check-square-o checked-box');
       $(target).addClass('fa-square-o check-box');
       $(image).hide();
+
+      // 達成率カウントダウン
+      compLength --;
+      var result = Math.round(compLength / length * 100);
+      var percent = $('#percent span').text(); 
+      $({count: percent}).animate({count: result}, {
+        duration: 1000,
+        easing: 'swing',
+        progress: function() { 
+          $('#percent span').text(Math.ceil(this.count)); 
+        }
+      });
     })
     .fail(function(){
       console.log("失敗");

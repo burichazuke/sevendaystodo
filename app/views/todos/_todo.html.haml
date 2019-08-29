@@ -9,12 +9,17 @@
         .todo__main__deadline__day
           ="#{todo.deadline.strftime("%m月%d日")}まで"
         .todo__main__deadline__left
-          ="あと#{remain}日"
+          あと
+          %span#remain
+            = "#{remain}"
+          日
       - else
         .todo__main__deadline__day
           ="#{todo.deadline.strftime("%m月%d日")}から"
         .todo__main__deadline__left
-          ="#{remain.abs}日経過"
+          %span
+            ="#{remain.abs}"
+          日経過
     -if todo.status == 1
       =image_tag("neko-tassei.png", class: "complete")
     -else 
