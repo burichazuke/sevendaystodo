@@ -5,7 +5,6 @@ $(document).on('turbolinks:load', function(){
       var query = location.search;
       var value = query.split('=');
       $('#deadline-form').val(value[1])
-      console.log(value)
     })
   }
 
