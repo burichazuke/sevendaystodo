@@ -52,7 +52,7 @@ class TodosController < ApplicationController
 
   def set_todos
     @keyword = Todo.ransack(params[:q])
-    @todos = @keyword.result(distinct: true).where(user_id: current_user.id).order("deadline asc")
+    @todos = @keyword.result(distinct: true).where(user_id: current_user.id).order("status asc", "deadline asc")
   end
 
 end
