@@ -11,7 +11,9 @@
       =render @todos
     .calendar
       #calendar
-      #percent
-        %span
-          = @percent
-        ％達成
+      .percent
+        #percent
+          達成率
+          %span
+            = @percent
+          ％
