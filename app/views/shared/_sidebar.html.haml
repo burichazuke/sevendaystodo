@@ -8,7 +8,7 @@
 
 
 =search_form_for(@keyword, url: todos_path) do |f|
-  = f.label "達成済を非表示dayo"
+  = f.label "達成済を非表示"
   = f.check_box :status_eq_any, { multiple: true, onchange: 'this.form.submit()' }, 0, ""
   %br
   = f.label "タイトルで検索"
