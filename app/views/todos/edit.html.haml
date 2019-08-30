@@ -31,13 +31,30 @@
  
       .new-todo-form
         %h1 詳細
-        =form_with model: @todo do |f|
-          = f.label :name, "タイトル"
-          = f.text_area :name
-          = f.label :description, "詳細"
-          = f.text_area :description
-          = f.label :deadline, "期日"
-          = f.date_field :deadline, id: "deadline-form"
+        =form_with model: @todo, local: true do |f|
+          -if @todo.errors.any?
+            = f.label :name, "タイトル"
+            .errors
+              -@todo.errors.full_messages_for(:name).each do |message|
+                = message
+            = f.text_area :name
+            = f.label :description, "詳細"
+            .errors
+              -@todo.errors.full_messages_for(:description).each do |message|
+                = message
+            = f.text_area :description
+            = f.label :deadline, "期日"
+            .errors
+              -@todo.errors.full_messages_for(:deadline).each do |message|
+                = message
+            = f.date_field :deadline, id: "deadline-form"
+          -else
+            = f.label :name, "タイトル"
+            = f.text_area :name
+            = f.label :description, "詳細"
+            = f.text_area :description
+            = f.label :deadline, "期日"
+            = f.date_field :deadline, id: "deadline-form"
           .new-todo-form__submit
             = f.submit "更新", class: "send"
             =link_to "削除", todo_path(@todo), class: "destroy", data: {confirm: "本当に削除しますか？"}, method: :delete

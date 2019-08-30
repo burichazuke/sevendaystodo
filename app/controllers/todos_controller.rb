@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to root_path
     else
-      redirect_to new_todo_path
+      render :new
     end
   end
 
@@ -33,6 +33,8 @@ class TodosController < ApplicationController
         format.html { redirect_to root_path }
         format.json
       end
+    else
+      render :edit
     end
   end
 
