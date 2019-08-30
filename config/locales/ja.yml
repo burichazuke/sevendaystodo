@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      todo:
+        name: タイトル
+        description: 詳細
+        deadline: 期日(いつまでにやるか)
